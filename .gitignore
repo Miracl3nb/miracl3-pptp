@@ -1,0 +1,25 @@
+# Logs
+*.log
+
+# Backups
+*.bak
+
+# Archivos temporales
+*.tmp
+*.swp
+
+# Configuración local
+.env
+
+# Directorios Python
+__pycache__/
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
