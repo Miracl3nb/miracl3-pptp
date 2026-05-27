@@ -57,6 +57,15 @@ detect_hyprland() {
     fi
 }
 
+
+# ── Detectar UFW ─────────────────────────────────────────────
+detect_ufw() {
+    UFW_ACTIVE=false
+    if command -v ufw &>/dev/null && ufw status 2>/dev/null | grep -q "Status: active"; then
+        UFW_ACTIVE=true
+    fi
+}
+
 # ── Instalar paquetes ────────────────────────────────────────
 install_packages() {
     title "Instalando dependencias"
@@ -118,7 +127,7 @@ sep
 # ════════════════════════════════════════════════════════════
 title "Datos de la conexión VPN"
 
-read -p "  Nombre de la conexión (ej: VPNRAZ):           " VPN_NAME
+read -p "  Nombre de la conexión (ej: vpn-oficina):           " VPN_NAME
 [[ -z "$VPN_NAME" ]] && error "El nombre no puede estar vacío."
 
 read -p "  Servidor VPN (ej: vpn.empresa.net):           " VPN_SERVER
