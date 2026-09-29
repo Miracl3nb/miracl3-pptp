@@ -1,10 +1,21 @@
 #!/bin/bash
 # ================================================================
-#  mircl3-pptp.sh
-#  Instalación y configuración completa de VPN PPTP
-#  Soporta: Arch, Manjaro, Debian, Ubuntu y derivados
-#  Uso: sudo bash mircl3-pptp.sh
+#  mircl3-pptp.sh — DEPRECADO, NO USAR
 # ================================================================
+#  Este script instala el hook de rutas como
+#      /etc/ppp/ip-up.d/vpn-route.sh
+#  "run-parts" ignora los ficheros con extensión, así que el hook NUNCA se
+#  ejecutaba: la VPN conectaba pero no había ruta a la red interna y el ping
+#  se perdía, sin mostrar ningún error. Además su comprobación de /etc/ppp/ip-up
+#  daba un falso positivo y nunca llegaba a parchearlo.
+#
+#  Usa en su lugar:  sudo bash miracl3-pptp-debian.sh
+# ================================================================
+
+echo -e "\n\033[0;31m[ERR ]\033[0m mircl3-pptp.sh está DEPRECADO: instala un hook de rutas"
+echo -e "       que run-parts descarta, y la VPN conecta pero el ping no funciona."
+echo -e "       Usa en su lugar:\033[1;33m  sudo bash miracl3-pptp-debian.sh\033[0m\n"
+exit 1
 
 set -e
 
